@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { 
   Users, Calendar, Settings, Bell, ChevronDown, 
   BarChart2, Briefcase, FileText, MessageCircle, 
-  Shield, DollarSign, AlertTriangle 
+  Shield, DollarSign, AlertTriangle, LogOut 
 } from 'lucide-react';
 
 export default function AdminDashboard() {
@@ -14,6 +14,12 @@ export default function AdminDashboard() {
     activeClients: 342,
     pendingApprovals: 8,
     recentAlerts: 3
+  };
+
+  // Simulated Logout Function
+  const handleLogout = () => {
+    alert('Logged out successfully!');
+    // Redirect logic can be added here
   };
 
   return (
@@ -39,6 +45,9 @@ export default function AdminDashboard() {
                 <span className="text-sm font-medium">Admin</span>
                 <ChevronDown className="w-4 h-4" />
               </div>
+              <button onClick={handleLogout} className="text-red-500 hover:text-red-700">
+                <LogOut className="w-5 h-5" />
+              </button>
             </div>
           </div>
         </div>
@@ -48,113 +57,30 @@ export default function AdminDashboard() {
       <aside className="fixed left-0 top-0 h-full w-64 bg-white border-r border-slate-200 pt-16">
         <div className="px-4 py-6">
           <nav className="space-y-1">
-            <button 
-              onClick={() => setActiveTab('overview')}
-              className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg transition-colors ${
-                activeTab === 'overview' 
-                  ? 'bg-emerald-50 text-emerald-600' 
-                  : 'text-slate-600 hover:bg-slate-50'
-              }`}
-            >
-              <BarChart2 className="w-5 h-5" />
-              <span>Overview</span>
-            </button>
-
-            <button 
-              onClick={() => setActiveTab('users')}
-              className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg transition-colors ${
-                activeTab === 'users' 
-                  ? 'bg-emerald-50 text-emerald-600' 
-                  : 'text-slate-600 hover:bg-slate-50'
-              }`}
-            >
-              <Users className="w-5 h-5" />
-              <span>User Management</span>
-            </button>
-
-            <button 
-              onClick={() => setActiveTab('scheduling')}
-              className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg transition-colors ${
-                activeTab === 'scheduling' 
-                  ? 'bg-emerald-50 text-emerald-600' 
-                  : 'text-slate-600 hover:bg-slate-50'
-              }`}
-            >
-              <Calendar className="w-5 h-5" />
-              <span>Scheduling</span>
-            </button>
-
-            <button 
-              onClick={() => setActiveTab('clients')}
-              className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg transition-colors ${
-                activeTab === 'clients' 
-                  ? 'bg-emerald-50 text-emerald-600' 
-                  : 'text-slate-600 hover:bg-slate-50'
-              }`}
-            >
-              <Briefcase className="w-5 h-5" />
-              <span>Client Management</span>
-            </button>
-
-            <button 
-              onClick={() => setActiveTab('reports')}
-              className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg transition-colors ${
-                activeTab === 'reports' 
-                  ? 'bg-emerald-50 text-emerald-600' 
-                  : 'text-slate-600 hover:bg-slate-50'
-              }`}
-            >
-              <FileText className="w-5 h-5" />
-              <span>Reports</span>
-            </button>
-
-            <button 
-              onClick={() => setActiveTab('messages')}
-              className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg transition-colors ${
-                activeTab === 'messages' 
-                  ? 'bg-emerald-50 text-emerald-600' 
-                  : 'text-slate-600 hover:bg-slate-50'
-              }`}
-            >
-              <MessageCircle className="w-5 h-5" />
-              <span>Messages</span>
-            </button>
-
-            <button 
-              onClick={() => setActiveTab('security')}
-              className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg transition-colors ${
-                activeTab === 'security' 
-                  ? 'bg-emerald-50 text-emerald-600' 
-                  : 'text-slate-600 hover:bg-slate-50'
-              }`}
-            >
-              <Shield className="w-5 h-5" />
-              <span>Security</span>
-            </button>
-
-            <button 
-              onClick={() => setActiveTab('billing')}
-              className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg transition-colors ${
-                activeTab === 'billing' 
-                  ? 'bg-emerald-50 text-emerald-600' 
-                  : 'text-slate-600 hover:bg-slate-50'
-              }`}
-            >
-              <DollarSign className="w-5 h-5" />
-              <span>Billing</span>
-            </button>
-
-            <button 
-              onClick={() => setActiveTab('settings')}
-              className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg transition-colors ${
-                activeTab === 'settings' 
-                  ? 'bg-emerald-50 text-emerald-600' 
-                  : 'text-slate-600 hover:bg-slate-50'
-              }`}
-            >
-              <Settings className="w-5 h-5" />
-              <span>Settings</span>
-            </button>
+            {[
+              { id: 'overview', name: 'Overview', icon: BarChart2 },
+              { id: 'users', name: 'User Management', icon: Users },
+              { id: 'scheduling', name: 'Scheduling', icon: Calendar },
+              { id: 'clients', name: 'Client Management', icon: Briefcase },
+              { id: 'reports', name: 'Reports', icon: FileText },
+              { id: 'messages', name: 'Messages', icon: MessageCircle },
+              { id: 'security', name: 'Security', icon: Shield },
+              { id: 'billing', name: 'Billing', icon: DollarSign },
+              { id: 'settings', name: 'Settings', icon: Settings }
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`w-full flex items-center space-x-3 px-4 py-2 rounded-lg transition-colors ${
+                  activeTab === tab.id 
+                    ? 'bg-emerald-50 text-emerald-600' 
+                    : 'text-slate-600 hover:bg-slate-50'
+                }`}
+              >
+                <tab.icon className="w-5 h-5" />
+                <span>{tab.name}</span>
+              </button>
+            ))}
           </nav>
         </div>
       </aside>
@@ -162,110 +88,42 @@ export default function AdminDashboard() {
       {/* Main Content Area */}
       <main className="ml-64 pt-16 min-h-screen">
         <div className="p-8">
-          {/* Quick Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-slate-500">Active Nurses</p>
-                  <h3 className="text-2xl font-bold text-slate-800">{stats.activeNurses}</h3>
-                </div>
-                <Users className="w-12 h-12 text-emerald-500" />
+          {activeTab === 'overview' && (
+            <>
+              <h2 className="text-2xl font-bold mb-6">Dashboard Overview</h2>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                {Object.entries(stats).map(([key, value]) => (
+                  <div key={key} className="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 className="text-lg font-semibold text-slate-700">{key.replace(/([A-Z])/g, ' $1')}</h3>
+                    <p className="text-3xl font-bold">{value}</p>
+                  </div>
+                ))}
               </div>
-            </div>
+            </>
+          )}
 
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-slate-500">Active Clients</p>
-                  <h3 className="text-2xl font-bold text-slate-800">{stats.activeClients}</h3>
-                </div>
-                <Briefcase className="w-12 h-12 text-emerald-500" />
-              </div>
-            </div>
+          {activeTab === 'users' && (
+            <>
+              <h2 className="text-2xl font-bold mb-6">User Management</h2>
+              <p>Here you can manage all users. Add new nurses, approve pending registrations, or deactivate accounts.</p>
+            </>
+          )}
 
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-slate-500">Pending Approvals</p>
-                  <h3 className="text-2xl font-bold text-slate-800">{stats.pendingApprovals}</h3>
-                </div>
-                <AlertTriangle className="w-12 h-12 text-amber-500" />
-              </div>
-            </div>
+          {activeTab === 'scheduling' && (
+            <>
+              <h2 className="text-2xl font-bold mb-6">Scheduling</h2>
+              <p>Manage and update nurse schedules. Assign teams and view calendar reports.</p>
+            </>
+          )}
 
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-slate-500">Recent Alerts</p>
-                  <h3 className="text-2xl font-bold text-slate-800">{stats.recentAlerts}</h3>
-                </div>
-                <Bell className="w-12 h-12 text-emerald-500" />
-              </div>
-            </div>
-          </div>
+          {activeTab === 'reports' && (
+            <>
+              <h2 className="text-2xl font-bold mb-6">Reports</h2>
+              <p>View system reports, user activity logs, and performance analytics.</p>
+            </>
+          )}
 
-          {/* Recent Activity & Alerts */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Recent Activity */}
-            <div className="bg-white rounded-xl shadow-sm p-6">
-              <h2 className="text-lg font-semibold text-slate-800 mb-4">Recent Activity</h2>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center">
-                    <Users className="w-4 h-4 text-emerald-600" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-600">New nurse registration: Sarah Miller</p>
-                    <p className="text-xs text-slate-400">2 minutes ago</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
-                    <Calendar className="w-4 h-4 text-blue-600" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-600">Schedule updated for Team A</p>
-                    <p className="text-xs text-slate-400">15 minutes ago</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center">
-                    <AlertTriangle className="w-4 h-4 text-amber-600" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-600">Client review pending: John Doe</p>
-                    <p className="text-xs text-slate-400">1 hour ago</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* System Alerts */}
-            <div className="bg-white rounded-xl shadow-sm p-6">
-              <h2 className="text-lg font-semibold text-slate-800 mb-4">System Alerts</h2>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center">
-                    <AlertTriangle className="w-4 h-4 text-red-600" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-600">System maintenance scheduled</p>
-                    <p className="text-xs text-slate-400">Tomorrow at 2:00 AM</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center">
-                    <Bell className="w-4 h-4 text-amber-600" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-600">License renewals due (5 nurses)</p>
-                    <p className="text-xs text-slate-400">In 7 days</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Add content for other tabs as needed */}
         </div>
       </main>
     </div>
