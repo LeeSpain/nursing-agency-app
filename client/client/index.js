@@ -6,9 +6,9 @@ const helmet = require("helmet");
 // Load environment variables
 dotenv.config();
 
-const userRoutes = require("./routes/users");
-const shiftRoutes = require("./routes/shifts");
-const invoiceRoutes = require("./routes/invoices");
+const userRoutes = require("../routes/users");
+const shiftRoutes = require("../routes/shifts");
+const invoiceRoutes = require("../routes/invoices");
 
 const app = express();
 
