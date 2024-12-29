@@ -1,20 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>Nurse-Sync</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nurse-Sync - Empowering holistic and personalized care solutions through cutting-edge technology.">
+  <meta name="keywords" content="Nurse-Sync, Healthcare, Personalized Care, Holistic Support, AI-Assisted Care">
+  <meta name="author" content="Nurse-Sync Team">
+  <meta name="theme-color" content="#00b894">
+  
+  <title>Nurse-Sync | Empower Your Care</title>
+  
+  <!-- Open Graph Metadata -->
+  <meta property="og:title" content="Nurse-Sync | Empower Your Care">
+  <meta property="og:description" content="Holistic care solutions with personalized and AI-assisted support.">
+  <meta property="og:image" content="/images/nurse-sync-og-image.jpg">
+  <meta property="og:url" content="https://yourdomain.com">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nurse-Sync | Empower Your Care">
+  <meta name="twitter:description" content="Holistic care solutions with personalized and AI-assisted support.">
+  <meta name="twitter:image" content="/images/nurse-sync-og-image.jpg">
+  
+  <!-- Favicon and Touch Icons -->
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/images/favicon.png">
+
+  <!-- Stylesheets -->
+  <link href="/tailwind.css" rel="stylesheet"> <!-- Ensure Tailwind is built and placed correctly -->
+  <link href="/styles/main.css" rel="stylesheet"> <!-- Optional additional CSS -->
+</head>
+<body class="bg-emerald-50 text-slate-800 antialiased">
+  <!-- Root Element -->
+  <div id="root"></div>
+  
+  <!-- Fallback for No JavaScript -->
+  <noscript>
+    <div class="p-4 bg-red-100 text-red-800 text-center">
+      This site requires JavaScript to function properly. Please enable JavaScript in your browser settings.
+    </div>
+  </noscript>
+  
+  <!-- Accessibility Enhancements -->
+  <script>
+    // Enhances the experience when JavaScript is enabled
+    document.body.classList.add('js-enabled');
+  </script>
+</body>
 </html>

@@ -1,235 +1,231 @@
-import { useState } from 'react';
-import nurseInterface from '../assets/nurse-interface.jpg';
-
-const FeatureCard = ({ icon, title, description, isActive, onClick }) => (
-  <div
-    className={`p-8 rounded-xl transition-all duration-300 cursor-pointer ${
-      isActive 
-        ? 'bg-emerald-500 text-white' 
-        : 'bg-white hover:bg-emerald-50'
-    } border border-slate-200 hover:border-emerald-200`}
-    onClick={onClick}
-  >
-    <div className="text-4xl mb-4">
-      {icon}
-    </div>
-    <h3 className="text-xl font-semibold my-4">{title}</h3>
-    <p className={isActive ? 'text-white/90' : 'text-slate-600'}>
-      {description}
-    </p>
-  </div>
-);
-
-const StatCard = ({ title, value, trend }) => (
-  <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-    <h3 className="text-slate-600 mb-2">{title}</h3>
-    <div className="text-3xl font-bold text-slate-900 mb-1">{value}</div>
-    <div className={`text-sm ${trend.startsWith('+') ? 'text-emerald-500' : 'text-rose-500'}`}>
-      {trend} vs last month
-    </div>
-  </div>
-);
+import React from 'react';
+import Header from "./Header";
 
 const HomePage = () => {
-  const [activeFeature, setActiveFeature] = useState(null);
-
-  const features = [
-    {
-      icon: "👥",
-      title: "Client Access",
-      description: "Secure portal for clients to view care plans and schedules"
-    },
-    {
-      icon: "📊",
-      title: "Staff Management",
-      description: "Complete workforce management with auto-invoicing"
-    },
-    {
-      icon: "📝",
-      title: "Document Management",
-      description: "Digital documentation and record keeping system"
-    },
-    {
-      icon: "💳",
-      title: "Auto-Invoicing",
-      description: "Automated billing and payment processing"
-    },
-    {
-      icon: "📈",
-      title: "Advanced Analytics",
-      description: "Real-time insights and performance metrics"
-    },
-    {
-      icon: "📅",
-      title: "Care Planning",
-      description: "Comprehensive care plan management"
-    }
-  ];
-
-  const stats = [
-    { title: "Patient Satisfaction", value: "94%", trend: "+2.5%" },
-    { title: "Staff Efficiency", value: "87%", trend: "+4.3%" },
-    { title: "Documentation Rate", value: "98%", trend: "+1.2%" },
-    { title: "Response Time", value: "15min", trend: "-22%" }
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-emerald-50">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50">
-        <nav className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold text-emerald-500">
-              <span className="mr-2">💚</span>
-              Nurse-Sync
-            </div>
-            <div className="hidden md:flex space-x-8">
-              <a href="#features" className="text-slate-600 hover:text-emerald-500">Features</a>
-              <a href="#analytics" className="text-slate-600 hover:text-emerald-500">Analytics</a>
-              <a href="#contact" className="text-slate-600 hover:text-emerald-500">Contact</a>
-            </div>
-            <button className="bg-emerald-500 text-white px-4 py-2 rounded-full hover:bg-emerald-600 transition-colors">
-              Get Started
-            </button>
-          </div>
-        </nav>
-      </header>
-
+      <Header />
+      
       {/* Hero Section */}
       <main className="relative pt-32 pb-16 overflow-hidden">
-  <div className="max-w-7xl mx-auto px-4">
-    <div className="grid md:grid-cols-2 gap-8 items-center">
-      {/* Left Side - Text Content */}
-      <div className="text-left">
-        <div className="inline-block px-6 py-2 bg-emerald-100 rounded-full text-emerald-600 font-medium mb-4">
-          Next-Gen Healthcare Management
-        </div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-emerald-100/40 via-white to-white"></div>
+        <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-emerald-50 to-transparent"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 relative">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="relative z-10">
+              <div className="inline-flex items-center px-6 py-2 bg-emerald-100 rounded-full mb-6">
+                <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse mr-2"></div>
+                <span className="text-emerald-600 font-medium">Healthcare Platform of the Future</span>
+              </div>
+              
+              <h1 className="text-5xl lg:text-7xl font-bold text-slate-900 mb-8 leading-tight">
+                Connecting
+                <span className="text-emerald-500 block">Care & Technology</span>
+                Seamlessly
+              </h1>
+              
+              <p className="text-xl text-slate-600 mb-8 leading-relaxed max-w-xl">
+                Join the revolution in healthcare delivery. Whether you're seeking exceptional care 
+                or looking to grow your nursing practice, we've got you covered.
+              </p>
 
-        <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
-          From Single Client<br />
-          To Global Agency<br />
-          <span className="text-emerald-500">We Grow With You</span>
-        </h1>
+              <div className="flex flex-wrap gap-4 mb-12">
+                <a href="/get-started" 
+                   className="bg-emerald-500 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-emerald-600 transition-all duration-300 shadow-sm hover:shadow-md">
+                  Get Started
+                </a>
+                <a href="/how-it-works" 
+                   className="bg-white text-emerald-500 px-8 py-4 rounded-full text-lg font-medium hover:bg-emerald-50 transition-all duration-300 border border-emerald-200">
+                  How It Works
+                </a>
+              </div>
 
-        <p className="text-slate-600 text-xl mb-8">
-          Whether you're caring for one person or managing multiple teams worldwide,
-          Nurse-Sync scales to meet your needs with advanced AI-powered solutions.
-        </p>
+              <div className="flex items-center gap-8">
+                <div className="flex items-center gap-2">
+                  <span className="text-3xl font-bold text-emerald-500">10k+</span>
+                  <span className="text-slate-600">Active Users</span>
+                </div>
+                <div className="w-px h-8 bg-slate-200"></div>
+                <div className="flex items-center gap-2">
+                  <span className="text-3xl font-bold text-emerald-500">98%</span>
+                  <span className="text-slate-600">Satisfaction</span>
+                </div>
+              </div>
+            </div>
 
-        <button className="bg-emerald-500 text-white px-8 py-3 rounded-full text-lg hover:bg-emerald-600 transition-colors">
-          Start Your Journey
-        </button>
-      </div>
-
-      {/* Right Side - Image */}
-      <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-cyan-400/20 rounded-2xl blur-2xl"></div>
-        <img
-          src={nurseInterface}
-          alt="Nurse Sync Advanced Interface"
-          className="w-full rounded-2xl shadow-2xl relative object-cover"
-        />
-      </div>
-    </div>
-  </div>
-</main>
-
-      {/* Features Section */}
-      <section className="py-24 bg-white" id="features">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 text-center">
-            Advanced Features
-          </h2>
-          <p className="text-slate-600 text-xl max-w-2xl mx-auto text-center mb-16">
-            Experience the future of healthcare management with our cutting-edge features
-          </p>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <FeatureCard 
-                key={index}
-                {...feature}
-                isActive={activeFeature === index}
-                onClick={() => setActiveFeature(index)}
-              />
-            ))}
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-cyan-400/20 rounded-3xl blur-2xl"></div>
+              <div className="relative bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200/60">
+                <img
+                  src="/api/placeholder/800/600"
+                  alt="Healthcare Platform Interface"
+                  className="w-full"
+                />
+              </div>
+              
+              <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white rounded-2xl shadow-lg p-4 flex items-center gap-4">
+                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                <span className="text-sm font-medium text-slate-600">Live Platform Activity</span>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+      </main>
 
-      {/* Analytics Section */}
-      <section className="py-24 bg-emerald-50" id="analytics">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 text-center">
-            Advanced Analytics & Insights
-          </h2>
-          <p className="text-slate-600 text-xl max-w-2xl mx-auto text-center mb-16">
-            Make data-driven decisions with our comprehensive analytics dashboard
-          </p>
-
-          <div className="mb-16 relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-cyan-400/20 rounded-2xl blur-2xl"></div>
-            <img
-              src={nurseInterface}
-              alt="Analytics Dashboard"
-              className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl relative"
-            />
+      {/* Path Selection */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-emerald-50/50 to-white"></div>
+        <div className="max-w-7xl mx-auto px-4 relative">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+              Choose Your Path
+            </h2>
+            <p className="text-xl text-slate-600">
+              Whether you're seeking care or providing it, we have the tools and support you need to succeed
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {stats.map((stat, index) => (
-              <StatCard key={index} {...stat} />
-            ))}
-          </div>
-        </div>
-      </section>
+          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {/* For Clients */}
+            <div className="bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <div className="p-8 border border-slate-200">
+                <div className="inline-block px-4 py-2 bg-emerald-100 rounded-full text-sm font-medium text-emerald-600 mb-6">
+                  For Individuals & Families
+                </div>
+                
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                  Find Your Perfect Care Match
+                </h3>
+                
+                <p className="text-slate-600 mb-8">
+                  Connect with qualified healthcare providers who understand your unique needs 
+                  and preferences. Experience care that's truly personalized.
+                </p>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-emerald-500">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
-            Ready to Transform Your Healthcare Practice?
-          </h2>
-          <button className="bg-white text-emerald-500 px-8 py-4 rounded-full text-lg font-semibold hover:bg-emerald-50 transition-colors">
-            Get Started Now
-          </button>
+                <div className="space-y-6 mb-8">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center">
+                      <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-slate-900 mb-1">Personalized Matching</h4>
+                      <p className="text-slate-600">AI-powered system finds the perfect care provider based on your needs</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center">
+                      <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-slate-900 mb-1">Flexible Scheduling</h4>
+                      <p className="text-slate-600">Book appointments that work with your lifestyle and preferences</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center">
+                      <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-slate-900 mb-1">Secure Communication</h4>
+                      <p className="text-slate-600">Stay connected with your care provider through our secure platform</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center">
+                      <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-slate-900 mb-1">Care Coordination</h4>
+                      <p className="text-slate-600">All your care details managed in one convenient place</p>
+                    </div>
+                  </div>
+                </div>
+
+                <a href="/find-care" 
+                   className="inline-flex items-center justify-center w-full bg-emerald-500 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-emerald-600 transition-all duration-300">
+                  Find Care Now
+                  <span className="ml-2">→</span>
+                </a>
+              </div>
+            </div>
+
+            {/* For Nurses */}
+            <div className="bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <div className="p-8 border border-slate-200">
+                <div className="inline-block px-4 py-2 bg-emerald-100 rounded-full text-sm font-medium text-emerald-600 mb-6">
+                  For Healthcare Providers
+                </div>
+                
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                  Grow Your Healthcare Practice
+                </h3>
+                
+                <p className="text-slate-600 mb-8">
+                  Access a platform that helps you find clients, manage your practice, and 
+                  focus on what matters most - providing exceptional care.
+                </p>
+
+                <div className="space-y-6 mb-8">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center">
+                      <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-slate-900 mb-1">Client Acquisition</h4>
+                      <p className="text-slate-600">Steady stream of clients matched to your expertise and availability</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center">
+                      <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-slate-900 mb-1">Practice Management</h4>
+                      <p className="text-slate-600">Comprehensive tools to manage schedules, billing, and documentation</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center">
+                      <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-slate-900 mb-1">Payment Processing</h4>
+                      <p className="text-slate-600">Automated billing and secure payment handling for your services</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center">
+                      <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-slate-900 mb-1">Professional Growth</h4>
+                      <p className="text-slate-600">Access to continuing education and professional development resources</p>
+                    </div>
+                  </div>
+                </div>
+
+                <a href="/join-as-nurse" 
+                   className="inline-flex items-center justify-center w-full bg-emerald-500 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-emerald-600 transition-all duration-300">
+                  Join as a Provider
+                  <span className="ml-2">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-white py-12" id="contact">
+      <footer className="bg-slate-900 py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Nurse-Sync</h3>
-              <p className="text-slate-400">Next-generation healthcare management platform</p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Product</h3>
-              <ul className="space-y-2 text-slate-400">
-                <li>Features</li>
-                <li>Analytics</li>
-                <li>Security</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Company</h3>
-              <ul className="space-y-2 text-slate-400">
-                <li>About Us</li>
-                <li>Careers</li>
-                <li>Contact</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Legal</h3>
-              <ul className="space-y-2 text-slate-400">
-                <li>Privacy</li>
-                <li>Terms</li>
-                <li>Security</li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-slate-800 mt-12 pt-8 text-center text-slate-400">
+          <div className="text-center text-slate-400">
             <p>&copy; {new Date().getFullYear()} Nurse-Sync. All rights reserved.</p>
           </div>
         </div>
