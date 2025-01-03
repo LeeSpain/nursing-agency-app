@@ -1,0 +1,26 @@
+/* Import TailwindCSS directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .header-nav {
+    @apply bg-emerald-600 text-white shadow-md fixed top-0 left-0 right-0 z-50;
+  }
+
+  .nav-container {
+    @apply flex justify-between items-center max-w-7xl mx-auto px-6 py-4;
+  }
+
+  .nav-link {
+    @apply text-white text-lg font-medium no-underline hover:text-emerald-200;
+  }
+
+  .auth-button {
+    @apply bg-white text-emerald-600 border border-white px-4 py-2 rounded-full font-medium hover:bg-emerald-100;
+  }
+
+  .main-content {
+    @apply pt-20;
+  }
+}
