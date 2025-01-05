@@ -28,7 +28,7 @@ const DashboardHeader = () => {
           </div>
           <div className="flex items-center space-x-8">
             <nav className="hidden md:flex space-x-8">
-              <Link to="/careseeker/dashboard" className="text-white hover:text-emerald-300">
+              <Link to="/careseeker" className="text-white hover:text-emerald-300">
                 Dashboard
               </Link>
               <Link to="/careseeker/dashboard/your-nurse" className="text-white hover:text-emerald-300">
@@ -45,15 +45,15 @@ const DashboardHeader = () => {
               </Link>
             </nav>
             <div className="flex items-center space-x-4">
-              <Link to="/login" className="text-white hover:text-emerald-300">
-                Login
-              </Link>
-              <Link
-                to="/careseeker/dashboard"
-                className="bg-emerald-500 text-white px-4 py-2 rounded-full hover:bg-emerald-600 transition"
-              >
-                Dashboard
-              </Link>
+              <div className="flex items-center bg-emerald-500 text-white px-4 py-2 rounded-full hover:bg-emerald-600 transition space-x-2">
+                <Link to="/" className="hover:text-emerald-300">
+                  Home
+                </Link>
+                <span>|</span>
+                <Link to="/careseeker/home" className="hover:text-emerald-300">
+                  Dashboard
+                </Link>
+              </div>
             </div>
           </div>
         </div>

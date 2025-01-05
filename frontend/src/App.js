@@ -41,6 +41,15 @@ const App = () => {
           }
         />
         <Route
+          path="/careseeker/home"
+          element={
+            <>
+              <CareSeekerHeader />
+              <CareSeekerHomePage />
+            </>
+          }
+        />
+        <Route
           path="/careseeker/how-it-works"
           element={
             <>
@@ -68,14 +77,14 @@ const App = () => {
           }
         />
         <Route
-          path="/careseeker/dashboard"
-          element={
-            <>
-              <DashboardHeader />
-              <CareSeekerDashboard />
-            </>
-          }
-        />
+  path="/careseeker/dashboard"
+  element={
+    <>
+      <DashboardHeader />
+      <CareSeekerDashboard />
+    </>
+  }
+/>
         <Route
           path="/careseeker/messages"
           element={

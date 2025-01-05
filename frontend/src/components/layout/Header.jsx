@@ -11,8 +11,8 @@ const MainHeader = () => (
           <Logo />
         </Link>
 
-        {/* Main Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        {/* Main Navigation - Centralized */}
+        <nav className="hidden md:flex items-center justify-center absolute left-1/2 transform -translate-x-1/2 space-x-8">
           <Link 
             to="/CareSeeker" 
             className="text-white hover:text-white/80 transition-colors font-medium"
@@ -26,22 +26,6 @@ const MainHeader = () => (
             Healthcare Providers
           </Link>
         </nav>
-
-        {/* Action Buttons */}
-        <div className="flex items-center space-x-4">
-          <Link
-            to="/login"
-            className="bg-white text-[#A390E4] px-4 py-2 rounded-full hover:bg-[#C5B8F0] hover:text-white transition"
-          >
-            Login
-          </Link>
-          <Link
-            to="/get-started"
-            className="bg-emerald-500 text-white px-4 py-2 rounded-full hover:bg-emerald-600 transition"
-          >
-            Get Started
-          </Link>
-        </div>
 
         {/* Mobile Menu Button */}
         <button className="md:hidden p-2 text-white hover:text-white/80" aria-label="Menu">
