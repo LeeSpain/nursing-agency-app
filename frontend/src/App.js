@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// Import pages
-import HomePage from "./pages/HomePage";
+// Import Pages
+import HomePage from "./pages/HomePage"; // Ensure this is the correct path to your HomePage component
 import CareSeekerHomePage from "./pages/careseeker/CareSeekerHomePage";
 import ForNurseHomePage from "./pages/fornurse/ForNurseHomePage";
 import CareSeekerHowItWorks from "./pages/careseeker/HowItWorks";
@@ -15,14 +15,31 @@ import CareSeekerDashboard from "./pages/careseeker/dashboard/CareSeekerDashboar
 import MessagePage from "./pages/careseeker/dashboard/Message";
 import CarePlanPage from "./pages/careseeker/dashboard/CarePlan";
 import MembershipPage from "./pages/careseeker/dashboard/Membership";
-import YourNursePage from "./pages/careseeker/dashboard/YourNurse"; // New Your Nurse page import
+import YourNursePage from "./pages/careseeker/dashboard/YourNurse";
+import CalendarPage from "./pages/careseeker/dashboard/Calendar";
+import DashboardHome from "./pages/selfemployed/DashboardHome";
+import Clients from "./pages/selfemployed/Clients";
+import Staff from "./pages/selfemployed/Staff";
+import Finances from "./pages/selfemployed/Finances";
+import Marketing from "./pages/selfemployed/Marketing";
+import Training from "./pages/selfemployed/Training";
+import Messages from "./pages/selfemployed/Messages";
+import Settings from "./pages/selfemployed/Settings";
+import BuildYourPractice from "./pages/fornurse/BuildYourPractice";
 
-// Import layout components
+// Import MobileCare Pages
+import Dashboard from "./pages/mobilecare/Dashboard";
+import ClientsPage from "./pages/mobilecare/Clients";
+import NursesPage from "./pages/mobilecare/Nurses";
+import ReportsPage from "./pages/mobilecare/Reports";
+import MessagesPage from "./pages/mobilecare/Messages";
+
+// Import Headers
 import CareSeekerHeader from "./components/layout/CareSeekerHeader";
 import ForNurseHeader from "./components/layout/ForNurseHeader";
 import DashboardHeader from "./components/layout/careseeker/DashboardHeader";
+import Header from "./components/mobilecare/Header";
 
-// App Component
 const App = () => {
   return (
     <BrowserRouter>
@@ -77,14 +94,23 @@ const App = () => {
           }
         />
         <Route
-  path="/careseeker/dashboard"
-  element={
-    <>
-      <DashboardHeader />
-      <CareSeekerDashboard />
-    </>
-  }
-/>
+          path="/careseeker/dashboard"
+          element={
+            <>
+              <DashboardHeader />
+              <CareSeekerDashboard />
+            </>
+          }
+        />
+        <Route
+          path="/careseeker/dashboard/calendar"
+          element={
+            <>
+              <DashboardHeader />
+              <CalendarPage />
+            </>
+          }
+        />
         <Route
           path="/careseeker/messages"
           element={
@@ -156,6 +182,72 @@ const App = () => {
             <>
               <ForNurseHeader />
               <ForNursePricing />
+            </>
+          }
+        />
+        <Route
+          path="/fornurse/build-your-practice"
+          element={
+            <>
+              <ForNurseHeader />
+              <BuildYourPractice />
+            </>
+          }
+        />
+
+        {/* Self-Employed Nurse Dashboard Pages */}
+        <Route path="/selfemployed/dashboard" element={<DashboardHome />} />
+        <Route path="/selfemployed/clients" element={<Clients />} />
+        <Route path="/selfemployed/staff" element={<Staff />} />
+        <Route path="/selfemployed/finances" element={<Finances />} />
+        <Route path="/selfemployed/marketing" element={<Marketing />} />
+        <Route path="/selfemployed/training" element={<Training />} />
+        <Route path="/selfemployed/messages" element={<Messages />} />
+        <Route path="/selfemployed/settings" element={<Settings />} />
+
+        {/* MobileCare Pages */}
+        <Route
+          path="/mobilecare/dashboard"
+          element={
+            <>
+              <Header />
+              <Dashboard />
+            </>
+          }
+        />
+        <Route
+          path="/mobilecare/clients"
+          element={
+            <>
+              <Header />
+              <ClientsPage />
+            </>
+          }
+        />
+        <Route
+          path="/mobilecare/nurses"
+          element={
+            <>
+              <Header />
+              <NursesPage />
+            </>
+          }
+        />
+        <Route
+          path="/mobilecare/reports"
+          element={
+            <>
+              <Header />
+              <ReportsPage />
+            </>
+          }
+        />
+        <Route
+          path="/mobilecare/messages"
+          element={
+            <>
+              <Header />
+              <MessagesPage />
             </>
           }
         />

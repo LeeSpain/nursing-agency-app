@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const DashboardHeader = () => {
+const PatrickDashboardHeader = () => {
   const currentDate = new Date();
   const formattedDate = currentDate.toLocaleDateString(undefined, {
     weekday: "long",
@@ -19,7 +19,7 @@ const DashboardHeader = () => {
       <div className="max-w-7xl mx-auto px-4 py-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-white">Welcome back, Linda!</h1>
+            <h1 className="text-2xl font-bold text-white">Welcome back, Patrick!</h1>
             <p className="text-white text-sm">
               Today is{" "}
               <span className="font-medium text-emerald-400">{formattedDate}</span> and the time is{" "}
@@ -28,24 +28,20 @@ const DashboardHeader = () => {
           </div>
           <div className="flex items-center space-x-8">
             <nav className="hidden md:flex space-x-8">
-              {/* Update the link for Dashboard */}
-              <Link to="/careseeker/dashboard" className="text-white hover:text-emerald-300">
+              <Link to="/mobilecare/dashboard" className="text-white hover:text-emerald-300">
                 Dashboard
               </Link>
-              <Link to="/careseeker/dashboard/your-nurse" className="text-white hover:text-emerald-300">
-                Your Nurse
+              <Link to="/mobilecare/clients" className="text-white hover:text-emerald-300">
+                Clients
               </Link>
-              <Link to="/careseeker/messages" className="text-white hover:text-emerald-300">
+              <Link to="/mobilecare/nurses" className="text-white hover:text-emerald-300">
+                Nurses
+              </Link>
+              <Link to="/mobilecare/reports" className="text-white hover:text-emerald-300">
+                Reports
+              </Link>
+              <Link to="/mobilecare/messages" className="text-white hover:text-emerald-300">
                 Messages
-              </Link>
-              <Link to="/careseeker/dashboard/care-plan" className="text-white hover:text-emerald-300">
-                Care Plan
-              </Link>
-              <Link to="/careseeker/dashboard/membership" className="text-white hover:text-emerald-300">
-                Membership
-              </Link>
-              <Link to="/careseeker/dashboard/calendar" className="text-white hover:text-emerald-300">
-                Calendar
               </Link>
             </nav>
             <div className="flex items-center space-x-4">
@@ -54,7 +50,7 @@ const DashboardHeader = () => {
                   Home
                 </Link>
                 <span>|</span>
-                <Link to="/careseeker/dashboard" className="hover:text-emerald-300">
+                <Link to="/mobilecare/dashboard" className="hover:text-emerald-300">
                   Dashboard
                 </Link>
               </div>
@@ -66,4 +62,4 @@ const DashboardHeader = () => {
   );
 };
 
-export default DashboardHeader;
+export default PatrickDashboardHeader;

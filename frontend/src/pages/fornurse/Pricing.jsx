@@ -3,7 +3,7 @@ import { CheckCircle } from "lucide-react";
 
 const PricingForNurses = () => (
   <div className="min-h-screen bg-gradient-to-b from-emerald-50 to-white">
-    <div className="max-w-7xl mx-auto px-6 py-16">
+    <div className="max-w-7xl mx-auto px-6 py-28">
       <h1 className="text-4xl font-bold text-emerald-700 text-center mb-8">
         Flexible Pricing Plans
       </h1>
@@ -11,7 +11,7 @@ const PricingForNurses = () => (
         Choose the plan that fits your goals and scale your healthcare practice with ease.
       </p>
 
-      <div className="grid md:grid-cols-3 gap-12">
+      <div className="grid md:grid-cols-3 gap-28">
         {/* Basic Plan */}
         <div className="p-8 bg-white rounded-xl shadow-lg">
           <h2 className="text-2xl font-bold text-emerald-600 mb-4">Basic</h2>
