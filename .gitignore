@@ -1,3 +1,33 @@
-[submodule "frontend/nursing-agency-app"]
-    path = frontend/nursing-agency-app
-    url = https://github.com/LeeSpain/nursing-agency-app.git
+# Node modules
+/node_modules/
+
+# Build output
+/build/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+/.pnp/
+.pnp.js
+
+# Test coverage
+/coverage/
+
+# IDE/editor directories
+.idea/
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Build artifacts
+*.tgz
