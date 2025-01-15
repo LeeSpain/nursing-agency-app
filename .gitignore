@@ -1,1 +1,3 @@
-node_modules/
+[submodule "frontend/nursing-agency-app"]
+    path = frontend/nursing-agency-app
+    url = https://github.com/LeeSpain/nursing-agency-app.git
