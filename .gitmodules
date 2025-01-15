@@ -1,4 +1,4 @@
 [submodule "frontend/nursing-agency-app"]
-    path = frontend/nursing-agency-app
-    url = https://github.com/LeeSpain/nursing-agency-app.git
+	path = frontend/nursing-agency-app
+	url = https://github.com/LeeSpain/nursing-agency-app.git
 
