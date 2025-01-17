@@ -15,6 +15,9 @@ const ForNurseHeader = () => {
             <Logo />
           </Link>
           <nav className="hidden md:flex space-x-8">
+            <Link to="/" className="text-white hover:text-[#A390E4]">
+              Home
+            </Link>
             <Link to="/fornurse/how-it-works" className="text-white hover:text-[#A390E4]">
               How It Works
             </Link>

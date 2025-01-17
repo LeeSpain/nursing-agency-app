@@ -10,6 +10,9 @@ const CareSeekerHeader = () => (
           <Logo />
         </Link>
         <nav className="hidden md:flex space-x-8">
+          <Link to="/" className="text-white hover:text-emerald-300">
+            Home
+          </Link>
           <Link to="/careseeker/how-it-works" className="text-white hover:text-emerald-300">
             How it Works
           </Link>
@@ -25,11 +28,11 @@ const CareSeekerHeader = () => (
             Login
           </Link>
           <Link
-  to="/careseeker/dashboard"
-  className="bg-emerald-500 text-white px-4 py-2 rounded-full hover:bg-emerald-600 transition"
->
-  Dashboard
-</Link>
+            to="/careseeker/dashboard"
+            className="bg-emerald-500 text-white px-4 py-2 rounded-full hover:bg-emerald-600 transition"
+          >
+            Dashboard
+          </Link>
         </div>
       </div>
     </div>

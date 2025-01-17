@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Import Pages
-import HomePage from "./pages/HomePage"; // Ensure this is the correct path to your HomePage component
+import HomePage from "./pages/HomePage";
 import CareSeekerHomePage from "./pages/careseeker/CareSeekerHomePage";
 import ForNurseHomePage from "./pages/fornurse/ForNurseHomePage";
 import CareSeekerHowItWorks from "./pages/careseeker/HowItWorks";
@@ -45,7 +45,24 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         {/* Default Homepage */}
-        <Route path="/" element={<HomePage />} />
+        <Route 
+          path="/" 
+          element={
+            <>
+              <CareSeekerHeader />
+              <HomePage />
+            </>
+          } 
+        />
+        <Route 
+          path="/home" 
+          element={
+            <>
+              <CareSeekerHeader />
+              <HomePage />
+            </>
+          } 
+        />
 
         {/* Care Seeker Pages */}
         <Route
